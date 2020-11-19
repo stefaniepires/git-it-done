@@ -4,12 +4,27 @@ var getUserRepos = function(user) {
 
   // make a request to the url
   fetch(apiUrl).then(function(response) {
-    response.json().then(function(data) {
-      displayRepos(data, user);
-    });
-  });
+    //ok property allows us to check if request was successful
+    //when the code is in the 200s then the ok property is true
+    if (response.ok) {
+      response.json().then(function(data) {
+        displayRepos(data, user);
+      });
+    } else {
+      alert("Error: " + response.statusText); //we check the statusText when the ok property is false
+    }
+  })
+.catch(function(error) {
+  // `.catch()` is getting chained to end of `.then()` method
+alert("Unable to connect to GitHub");
+});
 };
 
+/* notes for the above:
+the request may find its destination URL and attempt 
+to get the data in question, which would get returned 
+into the .then() method; or if the request fails, 
+that error will be sent to the .catch() method. */
 
 //variables created to store a reference to the <form> element and to the <input> element
 var userFormEl = document.querySelector("#user-form");
@@ -32,6 +47,13 @@ var formSubmitHandler = function(event) {
 };
 
 var displayRepos = function (repos, searchTerm) {
+//check if api returned any repos
+//this if statement will let the user know that the github they searched doesnt have any repos
+if (repos.length === 0) {
+  repoContainerEl.textContent = "No repositories found.";
+  return;
+}
+
  // clear old content
 repoContainerEl.textContent = "";
 repoSearchTerm.textContent = searchTerm;
