@@ -1,3 +1,6 @@
+var languageButtonsEl = document.querySelector("#language-buttons");
+
+
 var getUserRepos = function(user) {
   // format the github api url
   var apiUrl = "https://api.github.com/users/" + user + "/repos";
@@ -110,6 +113,16 @@ var getFeaturedRepos = function(language) {
 };
 
 
+var buttonClickHandler = function(event) {
+var language = event.target.getAttribute("data-language");
+if (language) {
+  getFeaturedRepos(language);
+
+  // clear old content
+  repoContainerEl.textContent = "";
+}
+};
 
 //event listener to userFormEl
 userFormEl.addEventListener("submit", formSubmitHandler);
+languageButtonsEl.addEventListener("click", buttonClickHandler);
