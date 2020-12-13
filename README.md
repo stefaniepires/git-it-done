@@ -11,4 +11,4 @@ Search for accounts on Github to find open issues to contribute to. Use the sear
 ## Website
 https://steftinsley.github.io/git-it-done/
 
-![Screenshot of Portfolio](https://github.com/steftinsley/git-it-done/blob/main/assets/git-it-done.png)
+![Screenshot](https://github.com/steftinsley/git-it-done/blob/main/assets/git-it-done.png)
