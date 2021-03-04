@@ -9,6 +9,6 @@ Search for accounts on Github to find open issues to contribute to. Use the sear
 * JavaScript
 
 ## Website
-https://steftinsley.github.io/git-it-done/
+https://stefaniepires.github.io/git-it-done/
 
 ![Screenshot](https://github.com/steftinsley/git-it-done/blob/main/assets/git-it-done.png)
